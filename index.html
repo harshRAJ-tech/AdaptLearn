@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdaptLearn - Rule-Based Adaptive Learning & Assessment Platform</title>
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons 1.11.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans (Headings) + Inter (Body) + JetBrains Mono (Numbers) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         Top Universal Navigation Bar
+         ====================================================================== -->
+    <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+        <div class="container-fluid px-lg-4">
+            <!-- Brand Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#viewHome" data-nav-target="viewHome">
+                <span class="brand-icon">
+                    <i class="bi bi-mortarboard-fill text-white fs-5"></i>
+                </span>
+                <span class="fw-bold tracking-tight text-dark fs-5">Adapt<span class="text-primary">Learn</span></span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                
+                <!-- Public Navigation (Logged Out) -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1" id="publicNavGroup">
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom active" href="#viewHome" data-nav-target="viewHome">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewServices" data-nav-target="viewServices">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewAbout" data-nav-target="viewAbout">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewCourses" data-nav-target="viewCourses">Courses</a>
+                    </li>
+                </ul>
+
+                <!-- Authenticated Navigation (Logged In) -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1 d-none" id="authNavGroup">
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom active" href="#viewDashboard" data-nav-target="viewDashboard">
+                            <i class="bi bi-speedometer2 me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewCourses" data-nav-target="viewCourses">
+                            <i class="bi bi-grid-3x3-gap me-1"></i> Catalog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewAssessment" data-nav-target="viewAssessment">
+                            <i class="bi bi-lightning-charge me-1 text-warning"></i> Adaptive Test
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewInstructorAnalytics" data-nav-target="viewInstructorAnalytics">
+                            <i class="bi bi-graph-up-arrow me-1 text-info"></i> Analytics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-tab-custom" href="#viewArchitecture" data-nav-target="viewArchitecture">
+                            <i class="bi bi-file-earmark-code me-1 text-primary"></i> React Spec
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- User Profile / Login Action -->
+                <div class="d-flex align-items-center gap-2">
+                    <div id="navUserPill" class="auth-user-pill d-none d-flex align-items-center gap-2">
+                        <img id="navUserAvatar" src="" alt="User" class="user-avatar-sm">
+                        <span id="navUserName" class="small fw-bold text-dark me-1">User</span>
+                        <button id="navLogoutBtn" class="btn btn-sm btn-outline-danger border-0 rounded-circle py-0 px-1" title="Sign Out">
+                            <i class="bi bi-box-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <a href="#viewLogin" data-nav-target="viewLogin" class="btn btn-primary btn-sm px-3 py-2 rounded-pill fw-semibold" id="navLoginBtn">
+                        <i class="bi bi-person-circle me-1"></i> Log In
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dynamic SPA View Container -->
+    <main class="flex-grow-1">
+
+        <!-- ==================================================================
+             VIEW: HOME PAGE
+             ================================================================== -->
+        <section id="viewHome" class="app-view active">
+            <div class="container py-5">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-6">
+                        <div class="hero-badge mb-3">
+                            <i class="bi bi-sliders me-2"></i> Rule-Based Adaptive Assessment Flow
+                        </div>
+                        <h1 class="hero-title mb-3">
+                            Targeted Assessments That <span class="hero-gradient-text">Calibrate</span> To You.
+                        </h1>
+                        <p class="text-secondary mb-4">
+                            Traditional course platforms present the same static questions to everyone. AdaptLearn adjusts question difficulty in real time based on simple, local scoring rules.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <button class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm" onclick="AuthState.login('learner')">
+                                <i class="bi bi-play-circle me-1"></i> Open Student Dashboard
+                            </button>
+                            <a href="#viewCourses" data-nav-target="viewCourses" class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-medium">
+                                View Courses
+                            </a>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 text-muted small">
+                            <div><i class="bi bi-check2 text-primary me-1 fw-bold"></i> Lightweight & Local</div>
+                            <div><i class="bi bi-check2 text-primary me-1 fw-bold"></i> Instant Feedback</div>
+                            <div><i class="bi bi-check2 text-primary me-1 fw-bold"></i> React Ready</div>
+                        </div>
+                    </div>
+
+                    <!-- Clean Preview Snapshot -->
+                    <div class="col-lg-6">
+                        <div class="hero-preview-wrapper">
+                            <div class="p-3 bg-light rounded-4 border">
+                                <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="brand-icon" style="width:28px;height:28px;"><i class="bi bi-mortarboard-fill text-white small"></i></div>
+                                        <span class="fw-bold small">Learner Dashboard Preview</span>
+                                    </div>
+                                    <span class="badge bg-primary-subtle text-primary small rounded-pill">Active Track</span>
+                                </div>
+                                <div class="row g-2 mb-2">
+                                    <div class="col-6">
+                                        <div class="p-2 bg-white rounded-3 border">
+                                            <div class="text-muted small" style="font-size: 0.75rem;">Mastery Score</div>
+                                            <div class="h5 fw-bold text-primary mb-0 mono-num">+92%</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="p-2 bg-white rounded-3 border">
+                                            <div class="text-muted small" style="font-size: 0.75rem;">Study Track</div>
+                                            <div class="h5 fw-bold text-dark mb-0 mono-num">6.1 hrs / wk</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-3 text-white" style="background: linear-gradient(135deg, #09172c 0%, #102447 100%);">
+                                    <div class="small fw-bold mb-1"><i class="bi bi-check2-circle text-primary me-1"></i> Current Milestone: 3/8 Tasks Done</div>
+                                    <div class="small text-white-50">Calibrated Level: <strong class="text-white">HARD</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Module Features Grid -->
+                <div class="row g-4 mt-4 pt-4 border-top">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon-box bg-primary-subtle text-primary">
+                                <i class="bi bi-grid-3x3-gap fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Course Browser</h5>
+                            <p class="text-secondary small mb-0">
+                                Explore and filter courses by title, category, and skill level before launching your assessment.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon-box bg-success-subtle text-success">
+                                <i class="bi bi-sliders fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Adaptive Question Engine</h5>
+                            <p class="text-secondary small mb-0">
+                                Simple scoring rules adjust question difficulty (Easy $\leftrightarrow$ Medium $\leftrightarrow$ Hard) on each response.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <div class="feature-icon-box bg-info-subtle text-info">
+                                <i class="bi bi-graph-up fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Instructor Dashboard</h5>
+                            <p class="text-secondary small mb-0">
+                                Visual analytics panel displaying cohort progress, score distribution, and difficulty breakdowns.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: SERVICES & MODULES PAGE
+             ================================================================== -->
+        <section id="viewServices" class="app-view">
+            <div class="container py-5">
+                <div class="text-center max-w-700 mx-auto mb-4">
+                    <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-1 mb-2">System Modules</span>
+                    <h2 class="fw-bold text-dark">Platform Capabilities & Modules</h2>
+                    <p class="text-secondary small">Built entirely using HTML, CSS, Bootstrap, and JavaScript.</p>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="brand-icon"><i class="bi bi-sliders text-white fs-5"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-0">Client-Side Adaptive Engine</h5>
+                                    <span class="badge bg-light text-muted border">Module 5.2</span>
+                                </div>
+                            </div>
+                            <p class="text-secondary small">
+                                Starts learners at base difficulty. Questions dynamically step up on correct answers and step down on incorrect answers to reinforce understanding.
+                            </p>
+                            <ul class="list-unstyled small text-muted mb-0">
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Easy, Medium, Hard stratified question bank</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i>Consecutive streak tracking and score computation</li>
+                                <li><i class="bi bi-check2 text-primary me-2"></i>Instant question-level explanations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="brand-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);"><i class="bi bi-bar-chart-line text-white fs-5"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-0">Instructor Analytics Dashboard</h5>
+                                    <span class="badge bg-light text-muted border">Module 5.3</span>
+                                </div>
+                            </div>
+                            <p class="text-secondary small">
+                                Visualizes simulated learner progress across different cohorts with interactive charts, score distributions, and a searchable learner roster.
+                            </p>
+                            <ul class="list-unstyled small text-muted mb-0">
+                                <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Difficulty distribution percentage bars</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Score bracket quartile histograms</li>
+                                <li><i class="bi bi-check2 text-success me-2"></i>Individual learner status inspection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="card border-0 shadow-sm rounded-4 bg-white p-4">
+                    <h6 class="fw-bold text-dark mb-3">Comparison: Static LMS vs. AdaptLearn Engine</h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered align-middle small mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Criteria</th>
+                                    <th>Static Course Platforms</th>
+                                    <th class="table-primary text-primary fw-bold">AdaptLearn Rule Engine</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-semibold">Assessment Difficulty</td>
+                                    <td>Static; same questions for all learners</td>
+                                    <td class="text-success fw-bold"><i class="bi bi-check-circle-fill me-1"></i> Calibrated dynamically per question</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-semibold">Architecture</td>
+                                    <td>Complex backend and database requirements</td>
+                                    <td class="text-success fw-bold"><i class="bi bi-check-circle-fill me-1"></i> Clean client-side JavaScript rules</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-semibold">Feedback Speed</td>
+                                    <td>Delayed feedback after submission</td>
+                                    <td class="text-success fw-bold"><i class="bi bi-check-circle-fill me-1"></i> Immediate diagnostic explanation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: ABOUT US PAGE
+             ================================================================== -->
+        <section id="viewAbout" class="app-view">
+            <div class="container py-5">
+                <div class="row align-items-center gy-4 mb-4">
+                    <div class="col-lg-7">
+                        <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-1 mb-2">Project Background</span>
+                        <h2 class="fw-bold text-dark mb-3">Problem Statement & Objective</h2>
+                        <p class="text-secondary small">
+                            Traditional static course-listing websites present the same content and assessment difficulty to every learner, regardless of their individual performance. There is no simple client-side mechanism that adjusts question difficulty based on real-time performance.
+                        </p>
+                        <p class="text-secondary small">
+                            This project addresses that gap by building a lightweight, rule-based adaptive assessment flow along with a visual instructor dashboard, using straightforward local scoring rules without depending on external infrastructure.
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="p-4 bg-white rounded-4 border shadow-sm">
+                            <h6 class="fw-bold text-dark mb-3"><i class="bi bi-code-slash text-primary me-2"></i>Scoring Transition Rules</h6>
+                            <div class="small text-muted mb-2">
+                                <strong class="text-dark">1. Correct Answer:</strong> Promotes difficulty: Easy $\rightarrow$ Medium $\rightarrow$ Hard (stays at Hard on streak).
+                            </div>
+                            <div class="small text-muted mb-2">
+                                <strong class="text-dark">2. Incorrect Answer:</strong> Drops difficulty: Hard $\rightarrow$ Medium $\rightarrow$ Easy (stays at Easy for reinforcement).
+                            </div>
+                            <div class="small text-muted">
+                                <strong class="text-dark">3. Audit Trail:</strong> Stores complete difficulty path and performance metrics locally.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Contributors -->
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm rounded-4 text-center p-3 bg-white">
+                            <h6 class="fw-bold mb-1">Dr. Sarah Jenkins</h6>
+                            <p class="text-primary small mb-1">Academic Instructor</p>
+                            <p class="text-muted small mb-0">Curriculum design and assessment structuring.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm rounded-4 text-center p-3 bg-white">
+                            <h6 class="fw-bold mb-1">Alex Chen</h6>
+                            <p class="text-primary small mb-1">Student Fellow</p>
+                            <p class="text-muted small mb-0">Frontend prototype testing and learner feedback.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm rounded-4 text-center p-3 bg-white">
+                            <h6 class="fw-bold mb-1">Prof. Michael Chang</h6>
+                            <p class="text-primary small mb-1">Algorithms Advisor</p>
+                            <p class="text-muted small mb-0">Rule-based scoring formulas and state models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: LOGIN PAGE
+             ================================================================== -->
+        <section id="viewLogin" class="app-view">
+            <div class="container py-4">
+                <div class="auth-card-container">
+                    <div class="auth-card">
+                        <div class="text-center mb-3">
+                            <div class="brand-icon mx-auto mb-2"><i class="bi bi-mortarboard-fill text-white fs-5"></i></div>
+                            <h4 class="fw-bold text-dark mb-1">Sign in to AdaptLearn</h4>
+                            <p class="text-secondary small">Access the course dashboard and adaptive assessments.</p>
+                        </div>
+
+                        <!-- One-Click Quick Logins -->
+                        <div class="demo-account-box mb-3">
+                            <div class="small fw-bold text-secondary mb-2 text-center">
+                                Select Demo Role
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="button" id="btnQuickStudent" class="btn btn-outline-primary btn-sm fw-semibold text-start d-flex align-items-center justify-content-between">
+                                    <span><i class="bi bi-person-circle me-2"></i> Login as <strong>Alex Chen (Learner)</strong></span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                                <button type="button" id="btnQuickInstructor" class="btn btn-outline-dark btn-sm fw-semibold text-start d-flex align-items-center justify-content-between">
+                                    <span><i class="bi bi-person-badge me-2"></i> Login as <strong>Dr. Sarah (Instructor)</strong></span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center my-3">
+                            <hr class="flex-grow-1">
+                            <span class="mx-2 text-muted small" style="font-size:0.75rem;">OR USE CREDENTIALS</span>
+                            <hr class="flex-grow-1">
+                        </div>
+
+                        <!-- Standard Form -->
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label small fw-semibold text-dark">Email Address</label>
+                                <input type="email" id="loginEmail" class="form-control" placeholder="name@domain.edu" value="alex.chen@adaptlearn.edu" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label small fw-semibold text-dark">Password</label>
+                                <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" value="password123" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold rounded-pill">
+                                Sign In & Open Dashboard
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: DASHBOARD (Creatio Style)
+             ================================================================== -->
+        <section id="viewDashboard" class="app-view">
+            <div class="container-fluid px-lg-4 py-3">
+                <div class="creatio-dashboard-container">
+                    
+                    <!-- Top Pill Navigation Bar -->
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="badge bg-white text-dark border px-3 py-2 rounded-pill fw-bold fs-6 shadow-sm">
+                                Creatio <span class="text-primary">&bull;</span> Adapt
+                            </div>
+                            <div class="creatio-pill-bar d-none d-md-flex">
+                                <button class="pill-tab active">Dashboard</button>
+                                <button class="pill-tab" onclick="switchAppView('viewCourses')">Courses</button>
+                                <button class="pill-tab" onclick="switchAppView('viewAssessment')">Assessments</button>
+                                <button class="pill-tab" onclick="switchAppView('viewInstructorAnalytics')">Analytics</button>
+                                <button class="pill-tab" onclick="switchAppView('viewArchitecture')">React Spec</button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="btn btn-sm btn-primary rounded-pill px-3 fw-semibold" onclick="switchAppView('viewAssessment')">
+                                <i class="bi bi-play-fill me-1"></i> Start Assessment
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Greeting & Top KPI Metrics Row -->
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3 mb-4">
+                        <div>
+                            <h2 class="fw-bold text-dark mb-1">
+                                Welcome in, <span id="creatioGreetingName">Alex Chen</span>
+                            </h2>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="filter-pill active">Track Progress (92)</span>
+                                <span class="filter-pill">Adaptive (24)</span>
+                                <span class="filter-pill">Project Docs (12)</span>
+                                <span class="filter-pill secondary">Cohort 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="text-end">
+                                <div class="h3 fw-bold text-dark mb-0 mono-num" id="creatioMasteryScore">+92</div>
+                                <div class="text-muted small" style="font-size:0.75rem;">Mastery %</div>
+                            </div>
+                            <div class="text-end border-start ps-3">
+                                <div class="h3 fw-bold text-primary mb-0 mono-num" id="creatioAvgScore">+78.4</div>
+                                <div class="text-muted small" style="font-size:0.75rem;">Average Score</div>
+                            </div>
+                            <div class="text-end border-start ps-3">
+                                <div class="h3 fw-bold text-success mb-0 mono-num" id="creatioQuestionsDone">+315</div>
+                                <div class="text-muted small" style="font-size:0.75rem;">Questions Solved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Dashboard 3-Column Grid -->
+                    <div class="row g-4">
+                        
+                        <!-- LEFT COLUMN: Profile & Pathways -->
+                        <div class="col-xl-3 col-lg-4">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="creatio-profile-card">
+                                    <img id="creatioProfileImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Profile" class="creatio-profile-img">
+                                    <div class="creatio-profile-overlay">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h5 class="fw-bold mb-0 text-white" id="creatioProfileName">Alex Chen</h5>
+                                                <div class="small text-white-50" id="creatioProfileRole">Full-Stack Track</div>
+                                            </div>
+                                            <span class="badge bg-light text-dark rounded-pill" id="creatioProfileId">ID: 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="creatio-card p-3">
+                                    <div class="small fw-bold text-muted mb-3 text-uppercase" style="font-size: 0.75rem;">Navigation Shortcuts</div>
+                                    
+                                    <div class="d-flex align-items-center justify-content-between p-2 rounded-3 bg-light mb-2 cursor-pointer" onclick="switchAppView('viewCourses')">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="bi bi-grid-3x3-gap text-primary"></i>
+                                            <span class="small fw-semibold">Course Catalog</span>
+                                        </div>
+                                        <i class="bi bi-chevron-right text-muted small"></i>
+                                    </div>
+
+                                    <div class="d-flex align-items-center justify-content-between p-2 rounded-3 bg-light mb-2 cursor-pointer" onclick="switchAppView('viewAssessment')">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="bi bi-lightning-charge text-warning"></i>
+                                            <span class="small fw-semibold">Adaptive Engine</span>
+                                        </div>
+                                        <i class="bi bi-chevron-right text-muted small"></i>
+                                    </div>
+
+                                    <div class="d-flex align-items-center justify-content-between p-2 rounded-3 bg-light cursor-pointer" onclick="switchAppView('viewInstructorAnalytics')">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="bi bi-graph-up-arrow text-info"></i>
+                                            <span class="small fw-semibold">Cohort Analytics</span>
+                                        </div>
+                                        <i class="bi bi-chevron-right text-muted small"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CENTER COLUMN: Progress Chart, Focus Timer & Schedule -->
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="d-flex flex-column gap-3">
+                                
+                                <div class="row g-3">
+                                    <!-- Progress Weekly Hours Chart -->
+                                    <div class="col-md-6">
+                                        <div class="creatio-card h-100">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <span class="small text-muted fw-semibold">Weekly Study Hours</span>
+                                                <span class="badge bg-primary-subtle text-primary rounded-pill small">+12% vs last wk</span>
+                                            </div>
+                                            <h4 class="fw-bold text-dark mb-0 mono-num" id="creatioWeeklyHours">6.1 h</h4>
+
+                                            <div class="weekly-bar-container" id="creatioWeeklyBars">
+                                                <!-- Injected dynamically via JS -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Focus Study Timer -->
+                                    <div class="col-md-6">
+                                        <div class="creatio-card h-100 text-center">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <span class="small text-muted fw-semibold">Study Session Timer</span>
+                                                <button id="timerResetBtn" class="btn btn-sm text-muted p-0" title="Reset"><i class="bi bi-arrow-counterclockwise"></i></button>
+                                            </div>
+
+                                            <div class="timer-circle-container my-1">
+                                                <svg class="timer-svg" width="136" height="136">
+                                                    <circle class="timer-bg-circle" cx="68" cy="68" r="54"></circle>
+                                                    <circle id="timerProgressCircle" class="timer-progress-circle" cx="68" cy="68" r="54"></circle>
+                                                </svg>
+                                                <div class="timer-center-text">
+                                                    <div class="h5 fw-bold text-dark mb-0 mono-num" id="timerDisplay">03:45</div>
+                                                    <div class="text-muted" style="font-size: 0.65rem;">Active Block</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex justify-content-center gap-2 mt-2">
+                                                <button id="timerToggleBtn" class="btn btn-primary btn-sm rounded-circle" style="width:34px;height:34px;">
+                                                    <i class="bi bi-play-fill"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Schedule Calendar -->
+                                <div class="creatio-card">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <span class="small text-muted fw-semibold">Scheduled Sessions</span>
+                                            <h6 class="fw-bold text-dark mb-0">September 2026</h6>
+                                        </div>
+                                        <span class="badge bg-light text-dark border rounded-pill">Active Term</span>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between gap-1 mb-3">
+                                        <div class="calendar-day-pill flex-grow-1">
+                                            <div class="text-muted" style="font-size: 0.65rem;">Mon</div>
+                                            <div class="fw-bold small">23</div>
+                                        </div>
+                                        <div class="calendar-day-pill flex-grow-1">
+                                            <div class="text-muted" style="font-size: 0.65rem;">Tue</div>
+                                            <div class="fw-bold small">24</div>
+                                        </div>
+                                        <div class="calendar-day-pill active flex-grow-1">
+                                            <div class="text-white-50" style="font-size: 0.65rem;">Wed</div>
+                                            <div class="fw-bold small">25</div>
+                                        </div>
+                                        <div class="calendar-day-pill flex-grow-1">
+                                            <div class="text-muted" style="font-size: 0.65rem;">Thu</div>
+                                            <div class="fw-bold small">26</div>
+                                        </div>
+                                        <div class="calendar-day-pill flex-grow-1">
+                                            <div class="text-muted" style="font-size: 0.65rem;">Fri</div>
+                                            <div class="fw-bold small">27</div>
+                                        </div>
+                                        <div class="calendar-day-pill flex-grow-1">
+                                            <div class="text-muted" style="font-size: 0.65rem;">Sat</div>
+                                            <div class="fw-bold small">28</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="creatioScheduleEvents">
+                                        <!-- Injected dynamically via JS -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN: Mastery & Navy Milestone Card -->
+                        <div class="col-xl-3 col-lg-12">
+                            <div class="d-flex flex-column gap-3">
+                                
+                                <div class="creatio-card p-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <span class="small text-muted fw-semibold">Curriculum Progress</span>
+                                        <span class="h5 fw-bold text-primary mb-0 mono-num" id="creatioMilestoneProgress">42%</span>
+                                    </div>
+                                    <div class="progress my-2" style="height: 8px;">
+                                        <div class="progress-bar bg-primary rounded-pill" style="width: 42%;"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between small text-muted" style="font-size: 0.7rem;">
+                                        <span>Orientation</span>
+                                        <span>Assessments</span>
+                                        <span>Mastery</span>
+                                    </div>
+                                </div>
+
+                                <!-- Dark Navy Milestone Card -->
+                                <div class="navy-milestone-card">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h6 class="fw-bold text-white mb-0">Learning Goals</h6>
+                                        <span class="badge bg-primary rounded-pill px-2" id="creatioMilestoneCount">3/8</span>
+                                    </div>
+                                    <p class="text-white-50 small mb-3">Click any goal to mark completed:</p>
+
+                                    <div id="creatioMilestoneList">
+                                        <!-- Injected dynamically via JS -->
+                                    </div>
+
+                                    <div class="d-grid mt-3">
+                                        <button class="btn btn-sm btn-outline-light rounded-pill" onclick="switchAppView('viewAssessment')">
+                                            <i class="bi bi-play-circle me-1"></i> Start Next Assessment
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: COURSE CATALOG
+             ================================================================== -->
+        <section id="viewCourses" class="app-view">
+            <div class="container py-4">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <h3 class="fw-bold text-dark mb-1">Course Catalog</h3>
+                        <p class="text-secondary small mb-0">Explore available courses or start the adaptive assessment directly.</p>
+                    </div>
+                    <button class="btn btn-primary rounded-pill px-3" onclick="switchAppView('viewAssessment')">
+                        <i class="bi bi-play-circle me-1"></i> Take Adaptive Test
+                    </button>
+                </div>
+
+                <!-- Filters & Search Toolbar -->
+                <div class="card border-0 shadow-sm rounded-4 mb-4 bg-white p-3">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                                <input type="text" id="courseSearchInput" class="form-control bg-light border-start-0" placeholder="Search courses by title, keywords or instructor...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="courseCategoryFilter" class="form-select bg-light">
+                                <option value="all">All Course Categories</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="DevOps">DevOps & Cloud</option>
+                                <option value="Database">Database Engineering</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="courseLevelFilter" class="form-select bg-light">
+                                <option value="all">All Difficulty Levels</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Grid Container -->
+                <div class="row" id="courseCatalogContainer">
+                    <!-- Injected via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: ADAPTIVE QUESTION ENGINE
+             ================================================================== -->
+        <section id="viewAssessment" class="app-view">
+            <div class="container py-4">
+                <div class="quiz-container mx-auto">
+                    
+                    <!-- Control Card & Status Header -->
+                    <div class="card border-0 shadow-sm rounded-4 mb-4 bg-white">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center gy-3">
+                                <div class="col-md-7">
+                                    <span class="badge bg-secondary-subtle text-secondary small mb-1">Target Course</span>
+                                    <h4 class="fw-bold mb-0 text-dark" id="quizCourseTitle">Full-Stack Web Engineering</h4>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="d-flex align-items-center justify-content-md-end gap-2">
+                                        <label class="small text-muted text-nowrap">Switch Course:</label>
+                                        <select id="assessmentCourseSelect" class="form-select form-select-sm w-auto">
+                                            <!-- Populated via JS -->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-3 text-secondary-subtle">
+
+                            <!-- Adaptive Metrics Row -->
+                            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="small text-muted fw-medium">Difficulty Level:</span>
+                                    <span id="quizDifficultyBadge" class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 fs-6">
+                                        <i id="quizDifficultyIcon" class="bi bi-reception-3 me-1"></i>
+                                        <span id="quizDifficultyText">MEDIUM</span>
+                                    </span>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center gap-1 small fw-semibold text-muted">
+                                        <span>Streak:</span>
+                                        <span id="quizStreakBadge" class="badge bg-light text-dark border">0🔥</span>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-1 small fw-semibold text-muted">
+                                        <span>Current Score:</span>
+                                        <span id="quizLiveScore" class="badge bg-primary text-white mono-num">0 pts</span>
+                                    </div>
+                                </div>
+
+                                <div class="small fw-semibold text-secondary" id="quizQuestionCounter">
+                                    Question 1 of 5
+                                </div>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div class="progress mt-3" style="height: 6px;">
+                                <div id="quizProgressBar" class="progress-bar bg-primary" role="progressbar" style="width: 20%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Question Card -->
+                    <div id="quizActiveCard" class="card border-0 shadow-sm rounded-4 bg-white mb-4">
+                        <div class="card-body p-4 p-md-5">
+                            <div class="mb-4">
+                                <span class="badge bg-light text-muted border px-2 py-1 small mb-2">Question</span>
+                                <h5 class="fw-bold text-dark lh-base" id="quizQuestionText">
+                                    Loading question...
+                                </h5>
+                            </div>
+
+                            <!-- Options List -->
+                            <div class="list-group mb-4" id="quizOptionsContainer">
+                                <!-- Options injected dynamically -->
+                            </div>
+
+                            <!-- Instant Feedback Banner -->
+                            <div id="quizFeedbackBanner" class="alert d-none" role="alert">
+                                <!-- Injected dynamically upon answer submission -->
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="d-flex justify-content-between align-items-center pt-2">
+                                <button id="quizRestartBtn" class="btn btn-outline-secondary btn-sm rounded-pill">
+                                    <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                                </button>
+                                <div class="d-flex gap-2">
+                                    <button id="quizSubmitBtn" class="btn btn-primary px-4 fw-semibold rounded-pill" disabled>
+                                        Submit Answer <i class="bi bi-arrow-right ms-1"></i>
+                                    </button>
+                                    <button id="quizNextBtn" class="btn btn-success px-4 fw-semibold rounded-pill d-none">
+                                        Next Question <i class="bi bi-chevron-right ms-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assessment Completed Summary Card -->
+                    <div id="quizSummaryCard" class="card border-0 shadow-sm rounded-4 bg-white mb-4 d-none">
+                        <div class="card-body p-4 p-md-5 text-center">
+                            <div class="display-5 text-primary mb-2"><i class="bi bi-award-fill"></i></div>
+                            <h3 class="fw-bold text-dark mb-1">Assessment Complete</h3>
+                            <p class="text-secondary small mb-4">Performance breakdown evaluated by the local adaptive scoring rules.</p>
+
+                            <!-- High Level KPI Badges -->
+                            <div class="row g-3 mb-4 text-start">
+                                <div class="col-sm-4">
+                                    <div class="p-3 bg-light rounded-3 border">
+                                        <div class="text-muted small">Total Points</div>
+                                        <div class="h4 fw-bold text-dark mb-0 mono-num" id="summaryScore">0 / 0</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="p-3 bg-light rounded-3 border">
+                                        <div class="text-muted small">Overall Accuracy</div>
+                                        <div class="h4 fw-bold text-primary mb-0 mono-num" id="summaryAccuracy">0%</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="p-3 bg-light rounded-3 border">
+                                        <div class="text-muted small">Mastery Tier</div>
+                                        <div class="mt-1">
+                                            <span id="summaryTier" class="badge bg-success px-3 py-2 fs-6">Proficient</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Adaptive Path Traversed -->
+                            <div class="p-4 bg-light rounded-3 border mb-4 text-start">
+                                <h6 class="fw-bold text-dark mb-2">
+                                    <i class="bi bi-diagram-3-fill text-primary me-2"></i>Adaptive Difficulty Traversed
+                                </h6>
+                                <p class="small text-muted mb-3">Notice how question difficulty adjusted dynamically based on each answer:</p>
+                                <div class="d-flex flex-wrap align-items-center gap-2" id="summaryAdaptivePath">
+                                    <!-- Path injected via JS -->
+                                </div>
+                            </div>
+
+                            <!-- Difficulty Breakdown -->
+                            <div class="row g-3 mb-4 text-start">
+                                <div class="col-md-4">
+                                    <div class="card border border-success-subtle h-100">
+                                        <div class="card-body">
+                                            <div class="small fw-bold text-success mb-1">Easy Questions</div>
+                                            <div class="h5 fw-bold mb-0 mono-num" id="summaryEasyStat">0 / 0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border border-primary-subtle h-100">
+                                        <div class="card-body">
+                                            <div class="small fw-bold text-primary mb-1">Medium Questions</div>
+                                            <div class="h5 fw-bold mb-0 mono-num" id="summaryMedStat">0 / 0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card border border-danger-subtle h-100">
+                                        <div class="card-body">
+                                            <div class="small fw-bold text-danger mb-1">Hard Questions</div>
+                                            <div class="h5 fw-bold mb-0 mono-num" id="summaryHardStat">0 / 0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-3 bg-primary-subtle rounded-3 text-start mb-4">
+                                <div class="fw-bold text-primary-emphasis small mb-1"><i class="bi bi-lightbulb-fill me-1"></i> Evaluation Note</div>
+                                <div class="small text-secondary-emphasis" id="summaryRecommendation">
+                                    Performance evaluated successfully.
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center gap-3">
+                                <button class="btn btn-outline-secondary px-4 rounded-pill" onclick="window.quizEngine.restart()">
+                                    <i class="bi bi-arrow-clockwise me-1"></i> Retake Test
+                                </button>
+                                <button class="btn btn-primary px-4 rounded-pill" onclick="switchAppView('viewCourses')">
+                                    <i class="bi bi-grid-fill me-1"></i> Course Catalog
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: INSTRUCTOR COHORT ANALYTICS
+             ================================================================== -->
+        <section id="viewInstructorAnalytics" class="app-view">
+            <div class="container py-4">
+                <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <h3 class="fw-bold text-dark mb-1">Instructor Analytics Dashboard</h3>
+                        <p class="text-secondary small mb-0">Simulated tracking of learner progress and difficulty distributions across cohorts.</p>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <label for="cohortSelect" class="fw-semibold text-secondary small text-nowrap">Cohort:</label>
+                        <select id="cohortSelect" class="form-select bg-white shadow-sm border-secondary-subtle">
+                            <!-- Populated via DashboardModule -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- KPI Metric Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card stat-card shadow-sm h-100 p-3">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-muted small fw-medium">Total Enrolled</span>
+                                <div class="stat-icon-wrapper bg-primary-subtle text-primary">
+                                    <i class="bi bi-people-fill fs-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold text-dark mb-0 mono-num" id="statTotalLearners">--</h3>
+                            <div class="small text-success mt-2"><i class="bi bi-check2 me-1"></i> Active Roster</div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card stat-card shadow-sm h-100 p-3">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-muted small fw-medium">Average Cohort Score</span>
+                                <div class="stat-icon-wrapper bg-success-subtle text-success">
+                                    <i class="bi bi-trophy-fill fs-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold text-dark mb-0 mono-num" id="statAvgScore">--%</h3>
+                            <div class="small text-muted mt-2">Calibrated across difficulties</div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card stat-card shadow-sm h-100 p-3">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-muted small fw-medium">Completion Rate</span>
+                                <div class="stat-icon-wrapper bg-info-subtle text-info">
+                                    <i class="bi bi-pie-chart-fill fs-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold text-dark mb-0 mono-num" id="statCompletionRate">--%</h3>
+                            <div class="small text-muted mt-2">All questions answered</div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card stat-card shadow-sm h-100 p-3">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="text-muted small fw-medium">Peak Hard Difficulty</span>
+                                <div class="stat-icon-wrapper bg-warning-subtle text-warning">
+                                    <i class="bi bi-sliders fs-5"></i>
+                                </div>
+                            </div>
+                            <h3 class="fw-bold text-dark mb-0 mono-num" id="statHighestBracket">--% in Hard</h3>
+                            <div class="small text-muted mt-2">Hard question tier reached</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Charts Row -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 h-100 bg-white">
+                            <div class="card-header bg-white border-0 pt-4 px-4 pb-0 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="fw-bold mb-0 text-dark">Adaptive Question Distribution</h6>
+                                    <p class="text-muted small mb-0">% of questions served at each difficulty</p>
+                                </div>
+                                <span class="badge bg-light text-dark border">Cohort</span>
+                            </div>
+                            <div class="card-body p-4" id="difficultyChartContainer">
+                                <!-- Rendered via DashboardModule -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm rounded-4 h-100 bg-white">
+                            <div class="card-header bg-white border-0 pt-4 px-4 pb-0 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="fw-bold mb-0 text-dark">Score Distribution Brackets</h6>
+                                    <p class="text-muted small mb-0">Learners per score quartile</p>
+                                </div>
+                                <span class="badge bg-light text-dark border">Histogram</span>
+                            </div>
+                            <div class="card-body p-4" id="scoreHistogramContainer">
+                                <!-- Rendered via DashboardModule -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learner Roster Table Card -->
+                <div class="card border-0 shadow-sm rounded-4 bg-white">
+                    <div class="card-header bg-white border-0 pt-4 px-4 pb-2">
+                        <div class="row align-items-center gy-2">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-0 text-dark">Learner Roster Table</h6>
+                                <p class="text-muted small mb-0">Performance records per enrolled student</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex gap-2 justify-content-md-end">
+                                    <input type="text" id="learnerSearch" class="form-control form-control-sm" placeholder="Search by name or ID..." style="max-width: 200px;">
+                                    <select id="statusFilter" class="form-select form-select-sm" style="max-width: 150px;">
+                                        <option value="all">All Statuses</option>
+                                        <option value="Mastered">Mastered</option>
+                                        <option value="Proficient">Proficient</option>
+                                        <option value="Needs Practice">Needs Practice</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light text-muted small text-uppercase">
+                                    <tr>
+                                        <th class="ps-4">Student ID</th>
+                                        <th>Learner Name</th>
+                                        <th>Level Reached</th>
+                                        <th>Score</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th class="text-end pe-4">Diagnostic</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="learnerTableBody">
+                                    <!-- Populated dynamically by DashboardModule -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VIEW: REACT MIGRATION SPECIFICATION
+             ================================================================== -->
+        <section id="viewArchitecture" class="app-view">
+            <div class="container py-4">
+                <div class="card border-0 shadow-sm rounded-4 bg-white p-4 mb-4">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-primary p-2 rounded-3 fs-5"><i class="bi bi-file-code-fill"></i></span>
+                        <div>
+                            <h4 class="fw-bold text-dark mb-0">Phase 1 Vanilla Frontend to React Migration</h4>
+                            <p class="text-secondary small mb-0">Refactoring plan to migrate into React components without changing scoring logic.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-light rounded-3 border mb-4">
+                        <p class="small text-muted mb-0">
+                            <strong>Architecture Decoupling:</strong> The scoring logic in <code>AdaptiveQuizEngine</code>, the mock data in <code>APP_DATA</code>, and cohort analytics are pure JavaScript ES6 objects. In Phase 2, they map directly to React hooks and components.
+                        </p>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="card h-100 border p-3 rounded-3 bg-light">
+                                <h6 class="fw-bold text-dark">Course Browser</h6>
+                                <p class="small text-muted mb-1">Vanilla:</p>
+                                <code class="small text-dark d-block p-1 bg-white rounded border mb-2">renderCourses()</code>
+                                <p class="small text-muted mb-1">Target React:</p>
+                                <code class="small text-primary d-block p-1 bg-white rounded border">&lt;CourseCatalog /&gt;<br>&lt;CourseCard /&gt;</code>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 border p-3 rounded-3 bg-light">
+                                <h6 class="fw-bold text-dark">Adaptive Question Engine</h6>
+                                <p class="small text-muted mb-1">Vanilla:</p>
+                                <code class="small text-dark d-block p-1 bg-white rounded border">AdaptiveQuizEngine</code>
+                                <p class="small text-muted mb-1">Target React:</p>
+                                <code class="small text-primary d-block p-1 bg-white rounded border">useAdaptiveQuiz()<br>&lt;QuizQuestion /&gt;</code>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card h-100 border p-3 rounded-3 bg-light">
+                                <h6 class="fw-bold text-dark">Instructor Dashboard</h6>
+                                <p class="small text-muted mb-1">Vanilla:</p>
+                                <code class="small text-dark d-block p-1 bg-white rounded border">DashboardModule</code>
+                                <p class="small text-muted mb-1">Target React:</p>
+                                <code class="small text-primary d-block p-1 bg-white rounded border">&lt;InstructorDashboard /&gt;<br>&lt;LearnerTable /&gt;</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================================
+         MODALS
+         ====================================================================== -->
+
+    <!-- Course Details Modal -->
+    <div class="modal fade" id="courseDetailModal" tabindex="-1" aria-labelledby="modalCourseTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-2 py-1" id="modalCourseCategory">Category</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <h4 class="fw-bold text-dark mb-1" id="modalCourseTitle">Course Title</h4>
+                    <div class="d-flex flex-wrap gap-3 small text-muted mb-3">
+                        <span><i class="bi bi-person me-1"></i> <span id="modalCourseInstructor">Instructor</span></span>
+                        <span><i class="bi bi-clock me-1"></i> <span id="modalCourseDuration">Duration</span></span>
+                        <span><i class="bi bi-bar-chart me-1"></i> <span id="modalCourseLevel">Level</span></span>
+                    </div>
+
+                    <p class="text-secondary small" id="modalCourseDesc">Course description...</p>
+
+                    <h6 class="fw-bold text-dark mt-3 mb-2">Modules & Syllabus:</h6>
+                    <ul class="list-group list-group-flush mb-3 rounded-3 border small" id="modalCourseModules">
+                        <!-- Populated via JS -->
+                    </ul>
+
+                    <h6 class="fw-bold text-dark mt-3 mb-2">Learning Outcomes:</h6>
+                    <ul class="list-unstyled small" id="modalCourseOutcomes">
+                        <!-- Populated via JS -->
+                    </ul>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm fw-semibold rounded-pill" id="modalStartAssessmentBtn">
+                        <i class="bi bi-play-circle me-1"></i> Start Assessment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learner Inspection Modal -->
+    <div class="modal fade" id="learnerModal" tabindex="-1" aria-labelledby="modalLearnerName" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-dark" id="modalLearnerName">Learner Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded-3 mb-3">
+                        <div>
+                            <div class="text-muted small">Student ID</div>
+                            <div class="fw-bold mono-num" id="modalLearnerId">L-000</div>
+                        </div>
+                        <div class="text-end">
+                            <div class="text-muted small">Score Achieved</div>
+                            <div class="h4 fw-bold text-primary mb-0 mono-num" id="modalLearnerScore">0%</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <span class="text-muted small d-block mb-1">Course:</span>
+                        <div class="fw-semibold text-dark small" id="modalLearnerCourse">Course</div>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <span class="text-muted small d-block">Status:</span>
+                            <span class="badge bg-success-subtle text-success mt-1" id="modalLearnerStatus">Status</span>
+                        </div>
+                        <div class="col-6">
+                            <span class="text-muted small d-block">Peak Level:</span>
+                            <span class="badge bg-danger-subtle text-danger mt-1" id="modalLearnerDiff">Difficulty</span>
+                        </div>
+                    </div>
+
+                    <div class="small text-muted pt-2 border-top">
+                        <i class="bi bi-calendar-check me-1"></i> Date: <span id="modalLearnerDate">--</span>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-secondary btn-sm rounded-pill" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================================
+         Footer
+         ====================================================================== -->
+    <footer class="py-3">
+        <div class="container text-center text-md-between d-md-flex align-items-center">
+            <div class="small text-muted mb-2 mb-md-0">
+                &copy; 2026 <strong>AdaptLearn</strong> &mdash; Built with HTML5, CSS3, Bootstrap 5 &amp; Vanilla JavaScript.
+            </div>
+            <div class="small text-muted">
+                Rule-Based Assessment Simulation &bull; Prepared for Progressive React Migration
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
